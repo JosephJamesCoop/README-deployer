@@ -1,3 +1,0 @@
-Name: undefined
-Languages: undefined
-Communications: undefined

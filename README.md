@@ -1,58 +1,59 @@
 
   # Your Project Title
-
-  s
-    
-    
+  
+  README Deployer
+      
+      
   ## Description 
-    
-  d
-    
-  f
-    
-    
+      
+  Node Project allowing quick deployment of README file.
+      
+  [JosephJamesCoop](https://github.com/JosephJamesCoop/README-deployer/tree/main)
+      
+      
   ## Table of Contents (Optional)
-    
+      
   none
-    
-    
+      
+      
   ## Installation
-    
-  f
-    
-    
+      
+  not at this time
+      
+      
   ## Usage 
-    
-  h
-    
-    
+      
+  Quick deplomemnt of detailed and professional README.md file for projects.
+      
+      
   ## Credits
-    
-  d
-    
-    
+      
+  Inital setup by UofO Bootcamp. Developed and finalized by Joseph Cooper - https://github.com/JosephJamesCoop
+      
+      
   ## License
-    
-  ### GNU Lesser General Public License v3.0[![License](https://img.shields.io/badge/License-GNU%20LGPLv3-red)](https://choosealicense.com/licenses/lgpl-3.0/)
-    
-    
+      
+  ### The Unlicense
+  ### [![License](https://img.shields.io/badge/License-The%20Unlicense-green)](https://choosealicense.com/licenses/unlicense/)
+      
+      
   ## Badges
-    
+      
   none
-    
-    
+      
+      
   ## Features
-    
+      
   none
-    
-    
+      
+      
   ## Contributing
-    
+      
   none
-    
-    
+      
+      
   ## Tests
-    
+      
   none
-    
-        
+      
+  

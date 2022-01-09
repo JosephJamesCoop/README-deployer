@@ -1,182 +1,166 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) { }
+// This will filter for undefined if optional items are not selected.
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) { }
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) { }
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-`;
-}
-
-module.exports = generateMarkdown;
-
-
-
-
-
-
-
-
-
-
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) { }
-
-
-
-
-
-if (licenseOptions === 'GNO AG{C') {
-  licenseFullName = 'GNU GP';
-  licenseBadgeName = 'AGP:_v3';
-  licenseLink = 'https://choosealicense.com/license/agpl-3.0';
+const contents = (outputData) => {
+  if (outputData.confirmTableOfContents == true) {
+    return outputData.Contents;
+  } else {
+    return 'none'
+  }
 };
-// same thing as below.
+
+const badges = (outputData) => {
+  if (outputData.confirmBadges == true) {
+    return outputData.Badges;
+  } else {
+    return 'none'
+  }
+};
+
+const features = (outputData) => {
+  if (outputData.confirmFeatures == true) {
+    return outputData.Features;
+  } else {
+    return 'none'
+  }
+};
+
+const contributing = (outputData) => {
+  if (outputData.confirmContributing == true) {
+    return outputData.Contributing;
+  } else {
+    return 'none'
+  }
+};
+
+const tests = (outputData) => {
+  if (outputData.confirmTest == true) {
+    return outputData.Test;
+  } else {
+    return 'none'
+  }
+};
 
 
+// generates name of license
 const licensing = (licenseSelector) => {
   console.log(licenseSelector)
   console.log(licenseSelector.License)
   if (licenseSelector.License == 'AGPLv3') {
-    return '### GNU Affero General Public License v3.0' +
-    '### [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)'
-  } else if (licenseSelector.License == 'AGPLv3') {
-    return '### GNU Affero General Public License v3.0' +
-    '### [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)'
+    return '### GNU Affero General Public License v3.0'
+  } else if (licenseSelector.License == 'GPLv3') {
+    return '### GNU General Public License v3.0'
+  } else if (licenseSelector.License == 'LGPLv3') {
+    return '### GNU Lesser General Public License v3.0'
+  } else if (licenseSelector.License == 'Mozilla') {
+    return '### Mozilla Public License 2.0'
+  } else if (licenseSelector.License == 'Apache') {
+    return '### Apache License 2.0'
+  } else if (licenseSelector.License == 'MIT') {
+    return '### MIT License'
+  } else if (licenseSelector.License == 'Boost') {
+    return '### Boost Software License 1.0'
+  } else if (licenseSelector.License == 'Unlicense') {
+    return '### The Unlicense'
   } else {
-    return '1'
+    return ""
   }
-
 };
 
-if
+// Adds Badge and Hyperlink to license info
 
-
-
-
-
-    case 'AGPLv3':
-      '### GNU Affero General Public License v3.0 [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)'
-      break;
-    case GPLv3:
-'### GNU General Public License v3.0' +
-  '[![License](https://img.shields.io/badge/License-GNU%20GPLv3-red)](https://choosealicense.com/licenses/gpl-3.0/)'
-      break;
-    case LGPLv3:
-      '### GNU Lesser General Public License v3.0' +
-      '[![License](https://img.shields.io/badge/License-GNU%20LGPLv3-red)](https://choosealicense.com/licenses/lgpl-3.0/)'
-      break;
-    case Mozilla:
-      '### Mozilla Public License 2.0' +
-      '[![License](https://img.shields.io/badge/License-Mozilla%20PL%202.0-red)](https://choosealicense.com/licenses/mpl-2.0/)'
-      break;
-    case Apache:
-      '### Apache License 2.0' +
-      '[![License](https://img.shields.io/badge/License-Apache%202.0-red)](https://choosealicense.com/licenses/apache-2.0/)'
-      break;
-    case MIT:
-      '### MIT License' +
-      '[![License](https://img.shields.io/badge/License-MIT%20License-red)](https://choosealicense.com/licenses/mit/)'
-      break;
-    case Boost:
-      '### Boost Software License 1.0' +
-      '[![License](https://img.shields.io/badge/License-Boost%20SL%201.0-red)](https://choosealicense.com/licenses/bsl-1.0/)'
-    
-      break;
-    case Unlicense:
-      '### The Unlicense' +
-      '[![License](https://img.shields.io/badge/License-The%20Unlicense-green)](https://choosealicense.com/licenses/unlicense/)'
-      break;
-    default:
-      ""
-      break;
+const licensingBadge = (licenseSelector) => {
+  console.log(licenseSelector)
+  console.log(licenseSelector.License)
+  if (licenseSelector.License == 'AGPLv3') {
+    return '### [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)'
+  } else if (licenseSelector.License == 'GPLv3') {
+    return '### [![License](https://img.shields.io/badge/License-GNU%20GPLv3-red)](https://choosealicense.com/licenses/gpl-3.0/)'
+  } else if (licenseSelector.License == 'LGPLv3') {
+    return '### [![License](https://img.shields.io/badge/License-GNU%20LGPLv3-red)](https://choosealicense.com/licenses/lgpl-3.0/)'
+  } else if (licenseSelector.License == 'Mozilla') {
+    return '### [![License](https://img.shields.io/badge/License-Mozilla%20PL%202.0-red)](https://choosealicense.com/licenses/mpl-2.0/)'
+  } else if (licenseSelector.License == 'Apache') {
+    return '### [![License](https://img.shields.io/badge/License-Apache%202.0-red)](https://choosealicense.com/licenses/apache-2.0/)'
+  } else if (licenseSelector.License == 'MIT') {
+    return '### [![License](https://img.shields.io/badge/License-MIT%20License-red)](https://choosealicense.com/licenses/mit/)'
+  } else if (licenseSelector.License == 'Boost') {
+    return '### [![License](https://img.shields.io/badge/License-Boost%20SL%201.0-red)](https://choosealicense.com/licenses/bsl-1.0/)'
+  } else if (licenseSelector.License == 'Unlicense') {
+    return '### [![License](https://img.shields.io/badge/License-The%20Unlicense-green)](https://choosealicense.com/licenses/unlicense/)'
+  } else {
+    return ""
   }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const licenseData = {
-  'GNO AG{C': ['GNU GP', 'AGP:_v3', 'https://choosealicense.com/license/agpl-3.0']
-}
-
-//run function
-function renderLicenseBadge(license) {
-  return licenseData[license]
 };
 
-// same thing below
-const renderLicenseBadge = license => licenseData[license]
 
-
-
-
-
-
-
-const variable = 'color'
-
-const car = {
-  color: 'blue'
-}
-
-console.log('cars color: ', car[variable]);
-
-
-
-
-
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) { }
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) { }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown(inputData) {
+  return `
+  # Your Project Title
+  
+  ${inputData.Title}
+      
+      
+  ## Description 
+      
+  ${inputData.Description}
+      
+  ${inputData.Link}
+      
+      
+  ## Table of Contents (Optional)
+      
+  ${contents(inputData)}
+      
+      
+  ## Installation
+      
+  ${inputData.Installation}
+      
+      
+  ## Usage 
+      
+  ${inputData.Usage}
+      
+      
+  ## Credits
+      
+  ${inputData.Credits}
+      
+      
+  ## License
+      
+  ${licensing(inputData)}
+  ${licensingBadge(inputData)}
+      
+      
+  ## Badges
+      
+  ${badges(inputData)}
+      
+      
+  ## Features
+      
+  ${features(inputData)}
+      
+      
+  ## Contributing
+      
+  ${contributing(inputData)}
+      
+      
+  ## Tests
+      
+  ${tests(inputData)}
+      
+  `
+    , err => {
+      if (err) {
+        console.log(err)
+      }
+    };
+};
 
-`;
-}
 
 module.exports = generateMarkdown;
-
-
