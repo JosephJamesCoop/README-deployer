@@ -33,8 +33,10 @@
     
   ## License
     
-  ### GNU Affero General Public License v3.0 [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)
-    
+  ### GNU Affero General Public License v3.0 
+
+  ## [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)
+
     
   ## Badges
     
