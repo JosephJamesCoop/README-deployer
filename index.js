@@ -1,12 +1,62 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// This will filter for undefined if optional items are not selected.
+
+
+const contents = (outputData) => {
+  if (outputData.confirmTableOfContents == true) {
+    return outputData.Contents;
+  } else {
+    return 'none'
+  }
+};
+
+const license = (outputData) => {
+  if (outputData.confirmLicense == true) {
+    return outputData.License;
+  } else {
+    return 'none'
+  }
+};
+
+const badges = (outputData) => {
+  if (outputData.confirmBadges == true) {
+    return outputData.Badges;
+  } else {
+    return 'none'
+  }
+};
+
+const features = (outputData) => {
+  if (outputData.confirmFeatures == true) {
+    return outputData.Features;
+  } else {
+    return 'none'
+  }
+};
+
+const contributing = (outputData) => {
+  if (outputData.confirmContributing == true) {
+    return outputData.Contributing;
+  } else {
+    return 'none'
+  }
+};
+
+const tests = (outputData) => {
+  if (outputData.confirmTest == true) {
+    return outputData.Test;
+  } else {
+    return 'none'
+  }
+};
 
 // TODO: Create a function to write README file
 
 const writeFile = (inputData) => {
 
-  fs.writeFile('./Dist/README.md',
+  fs.writeFile('./README.md',
 
     `
     # Your Project Title
@@ -22,12 +72,12 @@ const writeFile = (inputData) => {
     
     ## Table of Contents (Optional)
     
-    ${inputData.Contents}
+    ${contents(inputData)}
     
     
     ## Installation
     
-    ${inputData.Installations}
+    ${inputData.Installation}
     
     
     
@@ -43,27 +93,27 @@ const writeFile = (inputData) => {
     
     ## License
     
-    ${inputData.License}
+    ${license(inputData)}
     
     
     ## Badges
     
-    ${inputData.Badges}
+    ${badges(inputData)}
     
     
     ## Features
     
-    ${inputData.Features}
+    ${features(inputData)}
     
     
     ## Contributing
     
-    ${inputData.Contributing}
+    ${contributing(inputData)}
     
     
     ## Tests
     
-    ${inputData.Tests}
+    ${tests(inputData)}
     
         `
     , err => {
