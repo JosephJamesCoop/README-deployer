@@ -1,190 +1,263 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 
-// TODO: Include packages needed for this application
-
-// TODO: Create an array of questions for user input
-const questions = [];
-
-
-const questions = () => {
-    return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'title',
-        message: 'What is your project titled? (Required)',
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('A title for your project is required.');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'Destrition',
-        message: 'Enter a description for your project. (Required)',
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('A descrition of your project is required.');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'confirm',
-        name: 'confirmTableOfContents',
-        message: 'Would you like to include a table of contents? (optional)',
-        default: true
-      },
-      {
-        type: 'input',
-        name: 'tableOfContents',
-        message: 'Provide a table of contents for your project:',
-        when: ({ confirmTableOfContents }) => {
-          if (confirmTableOfContents) {
-            return true;
-          } else {
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'Installtion',
-        message: 'Provide installtion instructions for your project. (Required)',
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('Please provide some information on how to install your project.');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'usage',
-        message: 'How or what is your project used for. (Required)',
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('Please provide usage information.');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'Credits',
-        message: 'List all of the collaborators: Names, GitHub Accounts, Third-Party Assets, tutorials, etc. (Required)',
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('A minimum of your name required.');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'License',
-        message: 'Enter any licensing. (Required)',
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('A descrition of your project is required.');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'confirm',
-        name: 'confirmBadges',
-        message: 'Would you like to include any Badges? (optional)',
-        default: false
-      },
-      {
-        type: 'input',
-        name: 'Badges',
-        message: 'Provide any badges for your project:',
-        when: ({ confirmBadge }) => {
-          if (confirmBadge) {
-            return true;
-          } else {
-            return false;
-          }
-        }
-      },
-      {
-        type: 'confirm',
-        name: 'confirmFeatures',
-        message: 'Would you like to include any features? (optional)',
-        default: false
-      },
-      {
-        type: 'input',
-        name: 'features',
-        message: 'Provide any features for your project:',
-        when: ({ confirmFeatures }) => {
-          if (confirmFeatures) {
-            return true;
-          } else {
-            return false;
-          }
-        }
-      },
-      {
-        type: 'confirm',
-        name: 'confirmContributing',
-        message: 'Would you like to include any contributing? (optional)',
-        default: false
-      },
-      {
-        type: 'input',
-        name: 'contributing',
-        message: 'Provide any contributing for your project:',
-        when: ({ confirmContributing }) => {
-          if (confirmContributing) {
-            return true;
-          } else {
-            return false;
-          }
-        }
-      },
-      {
-        type: 'confirm',
-        name: 'confirmTests',
-        message: 'Would you like to include any tests? (optional)',
-        default: false
-      },
-      {
-        type: 'input',
-        name: 'tests',
-        message: 'Provide a test for your project:',
-        when: ({ confirmTests }) => {
-          if (confirmTests) {
-            return true;
-          } else {
-            return false;
-          }
-        }
-      },
-    ]);
-  };
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+
+const writeFile = (inputData) => {
+
+  fs.writeFile('./Dist/README.md',
+
+    `
+    # Your Project Title
+
+    ${inputData.Title}
+    
+    ## Description 
+    
+    ${inputData.Description}
+    
+    ${inputData.Link}
+    
+    
+    ## Table of Contents (Optional)
+    
+    ${inputData.Contents}
+    
+    
+    ## Installation
+    
+    ${inputData.Installations}
+    
+    
+    
+    ## Usage 
+    
+    ${inputData.Usage}
+    
+    
+    ## Credits
+    
+    ${inputData.Credits}
+    
+    
+    ## License
+    
+    ${inputData.License}
+    
+    
+    ## Badges
+    
+    ${inputData.Badges}
+    
+    
+    ## Features
+    
+    ${inputData.Features}
+    
+    
+    ## Contributing
+    
+    ${inputData.Contributing}
+    
+    
+    ## Tests
+    
+    ${inputData.Tests}
+    
+        `
+    , err => {
+      if (err) {
+        console.log(err)
+      }
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+  return inquirer.prompt([
+    {
+      type: 'input',
+      name: 'Title',
+      message: 'What is your project titled? (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('A title for your project is required.');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'Description',
+      message: 'Enter a description for your project, include what, why, and how. (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('A descrition of your project is required.');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'Link',
+      message: 'Enter a link to your deployed application',
+    },
+    {
+      type: 'confirm',
+      name: 'confirmTableOfContents',
+      message: 'Would you like to include a table of contents? (optional)',
+      default: true
+    },
+    {
+      type: 'input',
+      name: 'Contents',
+      message: 'Provide a table of contents for your project: * [Installation](#installation) * [Usage](#usage) * [Credits](#credits) * [License](#license)',
+      when: ({ confirmTableOfContents }) => {
+        if (confirmTableOfContents) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'Installation',
+      message: 'Provide installtion instructions for your project.  (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please provide some information on how to install your project. What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'Usage',
+      message: 'How or what is your project used for, create relative paths if you would like to include screen shots. (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please provide usage information.');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'Credits',
+      message: 'List all of the collaborators: Names, GitHub Accounts, Third-Party Assets, tutorials, etc. (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('A minimum of your name required.');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmLicense',
+      message: 'Would you like to include any lincensing? (optional)',
+      default: true
+    },
+    {
+      type: 'input',
+      name: 'License',
+      message: 'Provide any license for your project:',
+      when: ({ confirmLicense }) => {
+        if (confirmLicense) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmBadges',
+      message: 'Would you like to include any Badges? (optional)',
+      default: false
+    },
+    {
+      type: 'input',
+      name: 'Badges',
+      message: 'Provide any badges for your project:',
+      when: ({ confirmBadge }) => {
+        if (confirmBadge) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmFeatures',
+      message: 'Would you like to include any features? (optional)',
+      default: false
+    },
+    {
+      type: 'input',
+      name: 'Features',
+      message: 'Provide any features for your project:',
+      when: ({ confirmFeatures }) => {
+        if (confirmFeatures) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmContributing',
+      message: 'Would you like to include any contributing? (optional)',
+      default: false
+    },
+    {
+      type: 'input',
+      name: 'Contributing',
+      message: 'Provide any contributing for your project:',
+      when: ({ confirmContributing }) => {
+        if (confirmContributing) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmTests',
+      message: 'Would you like to include any tests? (optional)',
+      default: false
+    },
+    {
+      type: 'input',
+      name: 'Tests',
+      message: 'Provide a test for your project:',
+      when: ({ confirmTests }) => {
+        if (confirmTests) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },])
+
+};
+
 
 // Function call to initialize app
-init();
-
+init().then(data => writeFile(data))
+  ;
