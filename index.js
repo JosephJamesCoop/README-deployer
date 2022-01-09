@@ -1,6 +1,18 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+
+
+const licensing = (licenseSelector) => {
+  console.log(licenseSelector)
+  console.log(licenseSelector.License)
+  if (licenseSelector.License == 'AGPLv3') {
+    return '### GNU Affero General Public License v3.0 [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)'
+  } else {
+    return 'Test in progress'
+  }
+};
+
 // This will filter for undefined if optional items are not selected.
 
 
@@ -78,7 +90,7 @@ const writeFile = (inputData) => {
     
   ## Installation
     
-  ${inputData.Installations}
+  ${inputData.Installation}
     
     
   ## Usage 
@@ -93,7 +105,7 @@ const writeFile = (inputData) => {
     
   ## License
     
-  ${license(inputData)}
+  ${licensing(inputData)}
     
     
   ## Badges
@@ -221,9 +233,10 @@ const init = () => {
       default: true
     },
     {
-      type: 'input',
+      type: 'checkbox',
       name: 'License',
-      message: 'Provide any license for your project:',
+      message: 'Please select a license for your project:',
+      choices: ['AGPLv3', 'GPLv3', 'LGPLv3', 'Mozilla', 'Apache', 'MIT', 'Boost', 'Unlicense'],
       when: ({ confirmLicense }) => {
         if (confirmLicense) {
           return true;
@@ -306,6 +319,9 @@ const init = () => {
     },])
 
 };
+
+
+
 
 
 // Function call to initialize app

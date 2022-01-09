@@ -1,14 +1,14 @@
 
   # Your Project Title
 
-  README Deployer
+  a
     
     
   ## Description 
     
-  Node Project allowing quick deployment of README file.
+  s
     
-  [JosephJamesCoop](https://github.com/JosephJamesCoop/README-deployer/tree/main)
+  d
     
     
   ## Table of Contents (Optional)
@@ -18,22 +18,22 @@
     
   ## Installation
     
-  undefined
+  f
     
     
   ## Usage 
     
-  Quick deplomemnt of detailed and professional README.md file for projects.
+  g
     
     
   ## Credits
     
-  Inital setup by UofO Bootcamp. Developed and finalized by Joseph Cooper - https://github.com/JosephJamesCoop
+  h
     
     
   ## License
     
-  None
+  ### GNU Affero General Public License v3.0 [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)
     
     
   ## Badges
