@@ -59,61 +59,61 @@ const writeFile = (inputData) => {
   fs.writeFile('./README.md',
 
     `
-    # Your Project Title
+  # Your Project Title
 
-    ${inputData.Title}
-    
-    ## Description 
-    
-    ${inputData.Description}
-    
-    ${inputData.Link}
+  ${inputData.Title}
     
     
-    ## Table of Contents (Optional)
+  ## Description 
     
-    ${contents(inputData)}
+  ${inputData.Description}
     
-    
-    ## Installation
-    
-    ${inputData.Installation}
+  ${inputData.Link}
     
     
+  ## Table of Contents (Optional)
     
-    ## Usage 
-    
-    ${inputData.Usage}
-    
-    
-    ## Credits
-    
-    ${inputData.Credits}
+  ${contents(inputData)}
     
     
-    ## License
+  ## Installation
     
-    ${license(inputData)}
-    
-    
-    ## Badges
-    
-    ${badges(inputData)}
+  ${inputData.Installations}
     
     
-    ## Features
+  ## Usage 
     
-    ${features(inputData)}
-    
-    
-    ## Contributing
-    
-    ${contributing(inputData)}
+  ${inputData.Usage}
     
     
-    ## Tests
+  ## Credits
     
-    ${tests(inputData)}
+  ${inputData.Credits}
+    
+    
+  ## License
+    
+  ${license(inputData)}
+    
+    
+  ## Badges
+    
+  ${badges(inputData)}
+    
+    
+  ## Features
+    
+  ${features(inputData)}
+    
+    
+  ## Contributing
+    
+  ${contributing(inputData)}
+    
+    
+  ## Tests
+    
+  ${tests(inputData)}
     
         `
     , err => {
