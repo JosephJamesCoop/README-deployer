@@ -1,58 +1,57 @@
 
-    # Your Project Title
+# Your Project Title
 
     README Deployer
     
-    ## Description 
+## Description 
     
-    Node Project allowing quick deployment of README file.
+Node Project allowing quick deployment of README file.
     
     https://github.com/JosephJamesCoop/README-deployer/tree/main
     
     
-    ## Table of Contents (Optional)
+## Table of Contents (Optional)
     
     none
     
     
-    ## Installation
+## Installation
     
     Navigate to the link provided above and download the file. Make sure you already have Node.js installed then enter the following into your terminal: npm install
     
     
     
-    ## Usage 
+## Usage 
     
     Quick deplomemnt of detailed and professional README.md file for projects.
     
     
-    ## Credits
+## Credits
     
     Inital setup by UofO Bootcamp. Developed and finalized by Joseph Cooper - https://github.com/JosephJamesCoop
     
     
-    ## License
+## License
     
-    [badge] (https://img.shields.io/badge/License-The%20Unlicense-green)
-    [The Unlicense] (https://choosealicense.com/licenses/unlicense/)
+    [[The Unlicense] (https://img.shields.io/badge/License-The%20Unlicense-green)] (https://choosealicense.com/licenses/unlicense/)
     
     
-    ## Badges
+## Badges
     
     none
     
     
-    ## Features
+## Features
     
     This is only a test to show yes selection generates.
     
     
-    ## Contributing
+## Contributing
     
     none
     
     
-    ## Tests
+## Tests
     
     none
     
