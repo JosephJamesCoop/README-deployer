@@ -33,8 +33,7 @@ Node Project allowing quick deployment of README file.
     
 ## License
     
-    [The Unlicense](https://choosealicense.com/licenses/unlicense/)
-    [badge]((https://img.shields.io/badge/License-The%20Unlicense-green)
+    [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
     
 ## Badges
     
