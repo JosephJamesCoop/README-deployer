@@ -1,14 +1,14 @@
 
   # Your Project Title
 
-  a
+  s
     
     
   ## Description 
     
-  s
-    
   d
+    
+  f
     
     
   ## Table of Contents (Optional)
@@ -23,20 +23,18 @@
     
   ## Usage 
     
-  g
+  h
     
     
   ## Credits
     
-  h
+  d
     
     
   ## License
     
-  ### GNU Affero General Public License v3.0 
-
-  ## [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)
-
+  ### GNU Lesser General Public License v3.0[![License](https://img.shields.io/badge/License-GNU%20LGPLv3-red)](https://choosealicense.com/licenses/lgpl-3.0/)
+    
     
   ## Badges
     
