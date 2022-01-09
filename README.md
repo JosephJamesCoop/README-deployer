@@ -33,7 +33,8 @@ Node Project allowing quick deployment of README file.
     
 ## License
     
-    [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+### GNU GPL v3
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
     
 ## Badges
     
