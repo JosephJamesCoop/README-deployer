@@ -9,7 +9,7 @@ const badgeOne = (outputData) => {
     const label = one.replaceAll(' ', '%20')
     const two = outputData.bMessage
     const message = two.replaceAll(' ', '%20')
-    return `[badge](https://img.shields.io/badge/${label}-${message}-${outputData.bColor})`
+    return `[![badge](https://img.shields.io/badge/${label}-${message}-${outputData.bColor})]()`
   } else {
     return ''
   }
@@ -21,7 +21,7 @@ const badgeTwo = (outputData) => {
     const label = one.replaceAll(' ', '%20')
     const two = outputData.bBMessage
     const message = two.replaceAll(' ', '%20')
-    return `[badge](https://img.shields.io/badge/${label}-${message}-${outputData.bBColor})`
+    return `[![badge](https://img.shields.io/badge/${label}-${message}-${outputData.bBColor})]()`
   } else {
     return ''
   }
@@ -33,7 +33,7 @@ const badgeThree = (outputData) => {
     const label = one.replaceAll(' ', '%20')
     const two = outputData.bBBMessage
     const message = two.replaceAll(' ', '%20')
-    return `[badge](https://img.shields.io/badge/${label}-${message}-${outputData.bBBColor})`
+    return `[![badge](https://img.shields.io/badge/${label}-${message}-${outputData.bBBColor})]()`
   } else {
     return ''
   }
