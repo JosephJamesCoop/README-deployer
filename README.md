@@ -39,8 +39,8 @@
       
   ## Badges
       
-  # [badge](https://img.shields.io/badge/node.js-is%20Awesome!-red) 
-  # [https://img.shields.io/badge/javasctipt-node-blue)]
+  # [![badge](https://img.shields.io/badge/node.js-is%20Awesome!-red)]() 
+  # [![badge](https://img.shields.io/badge/javasctipt-node-blue)](https://img.shields.io/badge/javasctipt-node-blue)
    
       
   ## Features
