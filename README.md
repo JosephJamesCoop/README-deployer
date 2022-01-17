@@ -13,17 +13,17 @@
       
   ## Table of Contents (Optional)
       
-  [Installation](#installation) * [License](License)
+  [Installation](#installation) * [License](#License)
       
       
   ## Installation
       
-  Go to https://github.com/JosephJamesCoop/README-deployer download or clone the repo. Install inquirer, run npm init, then in your terminal enter node index.js and fill out the propted questions.
+  Go to https://github.com/JosephJamesCoop/README-deployer download or clone the repo. install node, Install inquirer, run npm init, then in your terminal enter node index.js and fill out the propted questions.
       
       
   ## Usage 
       
-  Porject is used to shoten the amount off time needed to write a README.md file and also ensure consistency and professionalism.
+  Porject is used to shoten the amount of time needed to write a README.md file and also ensure consistency and professionalism.
       
       
   ## Credits
@@ -39,8 +39,8 @@
       
   ## Badges
       
-  # [![badge](https://img.shields.io/badge/node.js-is%20Awesome!-red)]() 
-  # [![badge](https://img.shields.io/badge/javasctipt-node-blue)](https://img.shields.io/badge/javasctipt-node-blue)
+  [![badge](https://img.shields.io/badge/node.js-is%20Awesome!-red)]() 
+  [![badge](https://img.shields.io/badge/javascript-node.js-blue)]() 
    
       
   ## Features
@@ -55,6 +55,6 @@
       
   ## Tests
       
-  There are currently no tests in place.
+  none
       
   
