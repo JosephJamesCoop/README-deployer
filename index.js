@@ -1,26 +1,57 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js')
+
+// Generate Badges up to 3
+const badgeOne = (outputData) => {
+  if (outputData.confirmBadgeOne == true) {
+    const one = outputData.bLabel
+    const label = one.replaceAll(' ', '%20')
+    const two = outputData.bMessage
+    const message = two.replaceAll(' ', '%20')
+    return `[badge](https://img.shields.io/badge/${label}-${message}-${outputData.bColor})`
+  } else {
+    return ''
+  }
+};
+
+const badgeTwo = (outputData) => {
+  if (outputData.confirmBadgeTwo == true) {
+    const one = outputData.bBLabel
+    const label = one.replaceAll(' ', '%20')
+    const two = outputData.bBMessage
+    const message = two.replaceAll(' ', '%20')
+    return `[badge](https://img.shields.io/badge/${label}-${message}-${outputData.bBColor})`
+  } else {
+    return ''
+  }
+};
+
+const badgeThree = (outputData) => {
+  if (outputData.confirmBadgeThree == true) {
+    const one = outputData.bBBLabel
+    const label = one.replaceAll(' ', '%20')
+    const two = outputData.bBBMessage
+    const message = two.replaceAll(' ', '%20')
+    return `[badge](https://img.shields.io/badge/${label}-${message}-${outputData.bBBColor})`
+  } else {
+    return ''
+  }
+};
+
 
 // This will filter for undefined if optional items are not selected.
 
 const contents = (outputData) => {
-  if (outputData.confirmTableOfContents == true) {
+  if (outputData.confirmTableOfContents === true) {
     return outputData.Contents;
   } else {
     return 'none'
   }
 };
 
-const badges = (outputData) => {
-  if (outputData.confirmBadges == true) {
-    return outputData.Badges;
-  } else {
-    return 'none'
-  }
-};
-
 const features = (outputData) => {
-  if (outputData.confirmFeatures == true) {
+  if (outputData.confirmFeatures === true) {
     return outputData.Features;
   } else {
     return 'none'
@@ -28,7 +59,7 @@ const features = (outputData) => {
 };
 
 const contributing = (outputData) => {
-  if (outputData.confirmContributing == true) {
+  if (outputData.confirmContributing === true) {
     return outputData.Contributing;
   } else {
     return 'none'
@@ -36,8 +67,8 @@ const contributing = (outputData) => {
 };
 
 const tests = (outputData) => {
-  if (outputData.confirmTest == true) {
-    return outputData.Test;
+  if (outputData.confirmTests === true) {
+    return outputData.Tests;
   } else {
     return 'none'
   }
@@ -46,8 +77,6 @@ const tests = (outputData) => {
 
 // generates name of license
 const licensing = (licenseSelector) => {
-  console.log(licenseSelector)
-  console.log(licenseSelector.License)
   if (licenseSelector.License == 'AGPLv3') {
     return '### GNU Affero General Public License v3.0'
   } else if (licenseSelector.License == 'GPLv3') {
@@ -72,8 +101,6 @@ const licensing = (licenseSelector) => {
 // Adds Badge and Hyperlink to license info
 
 const licensingBadge = (licenseSelector) => {
-  console.log(licenseSelector)
-  console.log(licenseSelector.License)
   if (licenseSelector.License == 'AGPLv3') {
     return '### [![License](https://img.shields.io/badge/License-GNU%20AGPLv3-red)](https://choosealicense.com/licenses/agpl-3.0/)'
   } else if (licenseSelector.License == 'GPLv3') {
@@ -100,7 +127,7 @@ const licensingBadge = (licenseSelector) => {
 
 const writeFile = (inputData) => {
 
-  fs.writeFile('./README.md', 
+  fs.writeFile('./README.md',
   `
   # Your Project Title
   
@@ -142,8 +169,9 @@ const writeFile = (inputData) => {
       
   ## Badges
       
-  ${badges(inputData)}
-      
+  ${badgeOne(inputData)} 
+  ${badgeTwo(inputData)} 
+  ${badgeThree(inputData)} 
       
   ## Features
       
@@ -159,15 +187,15 @@ const writeFile = (inputData) => {
       
   ${tests(inputData)}
       
-  `
-    , err => {
+  `,
+  err => {
       if (err) {
         console.log(err)
       }
     });
 };
 
-// TODO: Create a function to initialize app
+// this is the main function that prompts all the questions
 const init = () => {
   return inquirer.prompt([
     {
@@ -265,7 +293,7 @@ const init = () => {
       default: true
     },
     {
-      type: 'checkbox',
+      type: 'list',
       name: 'License',
       message: 'Please select a license for your project:',
       choices: ['AGPLv3', 'GPLv3', 'LGPLv3', 'Mozilla', 'Apache', 'MIT', 'Boost', 'Unlicense'],
@@ -279,16 +307,141 @@ const init = () => {
     },
     {
       type: 'confirm',
-      name: 'confirmBadges',
+      name: 'confirmBadgeOne',
       message: 'Would you like to include any Badges? (optional)',
-      default: false
+      default: false,
     },
     {
       type: 'input',
-      name: 'Badges',
-      message: 'Provide any badges for your project:',
-      when: ({ confirmBadge }) => {
-        if (confirmBadge) {
+      name: 'bLabel',
+      message: 'Provide a label for your badge:',
+      when: ({ confirmBadgeOne }) => {
+        if (confirmBadgeOne) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'bMessage',
+      message: 'Provide a message for your badge:',
+      when: ({ confirmBadgeOne }) => {
+        if (confirmBadgeOne) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'list',
+      name: 'bColor',
+      message: 'Provide a label for your badge:',
+      choices: ['red', 'blue', 'green', 'yellow', 'gray', 'black', 'purple'],
+      when: ({ confirmBadgeOne }) => {
+        if (confirmBadgeOne) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmBadgeTwo',
+      message: 'Would you like to add another badge? (optional)',
+      default: false,
+      when: ({ confirmBadgeOne }) => {
+        if (confirmBadgeOne) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'bBLabel',
+      message: 'Provide a label for your badge:',
+      when: ({ confirmBadgeTwo }) => {
+        if (confirmBadgeTwo) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'bBMessage',
+      message: 'Provide a message for your badge:',
+      when: ({ confirmBadgeTwo }) => {
+        if (confirmBadgeTwo) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'list',
+      name: 'bBColor',
+      message: 'Provide a label for your badge:',
+      choices: ['red', 'blue', 'green', 'yellow', 'gray', 'black', 'purple'],
+      when: ({ confirmBadgeTwo }) => {
+        if (confirmBadgeTwo) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmBadgeThree',
+      message: 'You may add up to 3 Badges. Would you like to add a 3rd? (optional)',
+      default: false,
+      when: ({ confirmBadgeTwo }) => {
+        if (confirmBadgeTwo) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'bBBLabel',
+      message: 'Provide a label for your badge:',
+      when: ({ confirmBadgeThree }) => {
+        if (confirmBadgeThree) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'bBBMessage',
+      message: 'Provide a message for your badge:',
+      when: ({ confirmBadgeThree }) => {
+        if (confirmBadgeThree) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: 'list',
+      name: 'bBBColor',
+      message: 'Provide a label for your badge:',
+      choices: ['red', 'blue', 'green', 'yellow', 'gray', 'black', 'purple'],
+      when: ({ confirmBadgeThree }) => {
+        if (confirmBadgeThree) {
           return true;
         } else {
           return false;
@@ -352,12 +505,8 @@ const init = () => {
 
 };
 
-
-
-
-
 // Function call to initialize app
 init()
-.then(data => {
-  writeFile(data)
-});
+.then(README => {
+    return writeFile(README)
+  });
